@@ -60,54 +60,64 @@ numéricos)
 import datetime
 import random
 
-
+print("\n")
+print("*" * 40)
+print("======== Bem vindo ao mercadinho ========")
+print("*" * 40)
+print("\n")
 # Base de produtos:
 
 pedido = {}
 historico_vendas = []
-novo_produto = []
+produtos = {}
 
 def cadastrar_produtos():
     codigo = input("Digite o código: ")
-    if codigo in produtos[codigo]:
+    if codigo in produtos:
         print('Esse código já existe!')
         print("Comece tudo de novo!")
 
-        nome = int(input("Digite o nome do produto: "))
-        preco = int(input("Digite o preço do produto: R$ "))
+    elif codigo not in produtos:
+        nome =input("Digite o nome do produto: ")
+        preco = float(input("Digite o preço do produto: R$ "))
         estoque = int(input("Digite o estoque do produto: "))
 
-    produtos = {
-        "codigo": {'nome': 'nome', 'preco':'preco', 'estoque': 'estoque'}
+    produtos['codigo'] =  {'nome': 'nome', 'preco':'preco', 'estoque': 'estoque'}
 
-        }
     # mostrar os produtos que já tem no sistema
-    produtos = produtos + [codigo]
-    print(f'Produto: {produtos[nome]}')
-    print(f'Preço: {produtos[preco]}')
-    print(f'Estoque: {produtos[estoque]}')
+    
+    print(f'Produto: {nome}')
+    print(f'Preço: {preco}')
+    print(f'Estoque: {estoque}')
     return produtos
 
+    print("*"*40)
 
-cadastrar_produtos()
 
 def compra():
 
     carrinho = {}
+    total = 0.0
     while True:
         codigo = int(input("Digite o código do produto que deseja comprar: "))
 
-        if codigo == 000:
+        if codigo == '000':
             break
 
-        elif ["codigo"] not in pedido:
+        elif codigo not in produtos:
             return "Produto com estoque insuficiente\n Comece novamente!"
         
         for i in carrinho:
             total += carrinho
 
             print(f"Total: R$ ")
+        
+        if not carrinho:
+            print("Compra não realizada! ")
+            return
 
+    print("*"*40)
+cadastrar_produtos()
 compra()
 
     # if codigo not in pedido:
