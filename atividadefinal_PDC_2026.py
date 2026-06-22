@@ -106,6 +106,11 @@ def compra(estoque):
 
         elif codigo not in produtos:
             return "Produto com estoque insuficiente\n Comece novamente!"
+        
+        for i in carrinho:
+            total += carrinho
+
+            print(f"Total: R$ ")
 
     # carrinho.append(codigo)
 
