@@ -93,7 +93,7 @@ def compra():
     while True:
         codigo = int(input("Digite o código: "))
 
-        if codigo == 0:
+        if codigo == 000:
             break
 
         elif ["codigo"] not in estoque:
