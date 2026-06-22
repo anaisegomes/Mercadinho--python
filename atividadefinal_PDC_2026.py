@@ -91,7 +91,7 @@ def compra():
 
     carrinho = {}
     while True:
-        codigo = int(input("Digite o código: "))
+        codigo = int(input("Digite o código do produto que deseja comprar: "))
 
         if codigo == 000:
             break
