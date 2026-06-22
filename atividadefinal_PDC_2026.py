@@ -65,9 +65,6 @@ import random
 
 pedido = {}
 historico_vendas = []
-produtos = { "codigo": {'nome': 'nome', 'preco': 'preco', 'estoque': 'estoque'}
-
-}
 
 def cadastrar_produtos(codigo, nome, preco, estoque):
     codigo = input("Digite o código: ")
@@ -75,13 +72,15 @@ def cadastrar_produtos(codigo, nome, preco, estoque):
         print('Esse código já existe!')
         print("Comece tudo de novo!")
 
+    produtos = {
+        "codigo": {'nome': 'nome', 'preco':'preco', 'estoque': 'estoque'}
 
+        }
     # mostrar os produtos que já tem no sistema
     produtos = produtos[codigo]
     print(f'Produto: {produtos[nome]}')
     print(f'Preço: {produtos[preco]}')
     print(f'Estoque: {produtos[estoque]}')
-
     return produtos
 
     
