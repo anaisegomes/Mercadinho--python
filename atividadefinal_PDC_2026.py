@@ -65,8 +65,9 @@ import random
 
 pedido = {}
 historico_vendas = []
-produtos = {}
+produtos = { "codigo": {'nome': 'nome', 'preco': 'preco', 'estoque': 'estoque'}
 
+}
 
 def cadastrar_produtos(codigo, nome, preco, estoque):
     codigo = input("Digite o código: ")
@@ -112,7 +113,8 @@ def compra(estoque):
 
             print(f"Total: R$ ")
 
-    # carrinho.append(codigo)
+pedido = compra()
+print(pedido)
 
     # if codigo not in pedido:
     #     return "Digite um código válido"
