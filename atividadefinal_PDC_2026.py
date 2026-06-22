@@ -67,11 +67,15 @@ pedido = {}
 historico_vendas = []
 novo_produto = []
 
-def cadastrar_produtos(codigo, nome, preco, estoque):
+def cadastrar_produtos():
     codigo = input("Digite o código: ")
     if codigo in produtos[codigo]:
         print('Esse código já existe!')
         print("Comece tudo de novo!")
+
+        nome = int(input("Digite o nome do produto: "))
+        preco = int(input("Digite o preço do produto: R$ "))
+        estoque = int(input("Digite o estoque do produto: "))
 
     produtos = {
         "codigo": {'nome': 'nome', 'preco':'preco', 'estoque': 'estoque'}
@@ -85,7 +89,7 @@ def cadastrar_produtos(codigo, nome, preco, estoque):
     return produtos
 
 
-
+cadastrar_produtos()
 
 def compra():
 
@@ -96,7 +100,7 @@ def compra():
         if codigo == 000:
             break
 
-        elif ["codigo"] not in estoque:
+        elif ["codigo"] not in pedido:
             return "Produto com estoque insuficiente\n Comece novamente!"
         
         for i in carrinho:
@@ -104,8 +108,7 @@ def compra():
 
             print(f"Total: R$ ")
 
-pedido = compra("")
-print(pedido)
+compra()
 
     # if codigo not in pedido:
     #     return "Digite um código válido"
