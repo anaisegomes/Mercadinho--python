@@ -106,23 +106,25 @@ def compra():
 
         elif codigo not in produtos:
             return "Produto com estoque insuficiente\n Comece novamente!"
-        
+        if codigo in produtos:
+            qtd = int(input("Digite a quantidade de produtos que quer comprar: "))
+            cmp = codigo * qtd
+            final = cmp
+
         for i in carrinho:
             total += carrinho
 
-            print(f"Total: R$ ")
+            print(f"Total: R$ {total}")
         
         if not carrinho:
             print("Compra não realizada! ")
             return
 
-def desconto ():
-      desconto = total /(100*10)
-         valor_final = desconto
-            return valor_final
-            
-
-            print()
+def desconto (total):
+    desconto = compra /(100*10)
+    valor_final = desconto
+    return valor_final
+    print(f"Valor final: {valor_final:.2f}")
 
 
 
