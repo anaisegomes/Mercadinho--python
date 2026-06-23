@@ -116,6 +116,16 @@ def compra():
             print("Compra não realizada! ")
             return
 
+def desconto ():
+      desconto = total /(100*10)
+         valor_final = desconto
+            return valor_final
+            
+
+            print()
+
+
+
     print("*"*40)
 cadastrar_produtos()
 compra()
