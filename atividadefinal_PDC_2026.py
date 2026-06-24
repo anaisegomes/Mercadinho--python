@@ -109,10 +109,10 @@ def compra():
         if codigo in produtos:
             qtd = int(input("Digite a quantidade de produtos que quer comprar: "))
             cmp = codigo * qtd
-            final = cmp
 
-        for i in carrinho:
-            total += carrinho
+            for i in produtos:
+                total += cmp
+                return cmp
 
             print(f"Total: R$ {total}")
         
@@ -120,7 +120,7 @@ def compra():
             print("Compra não realizada! ")
             return
 
-def desconto (total):
+def desconto ():
     desconto = compra /(100*10)
     valor_final = desconto
     return valor_final
