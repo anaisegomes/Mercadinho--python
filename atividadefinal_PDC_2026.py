@@ -70,6 +70,8 @@ print("\n")
 pedido = {}
 historico_vendas = []
 produtos = {}
+estoque = int(input("Digite o estoque: "))
+
 
 def cadastrar_produtos():
     codigo = input("Digite o código: ")
@@ -80,7 +82,7 @@ def cadastrar_produtos():
     elif codigo not in produtos:
         nome =input("Digite o nome do produto: ")
         preco = float(input("Digite o preço do produto: R$ "))
-        estoque = int(input("Digite o estoque do produto: "))
+        # estoque = int(input("Digite o estoque do produto: "))
 
     produtos['codigo'] =  {'nome': 'nome', 'preco':'preco', 'estoque': 'estoque'}
 
@@ -93,6 +95,7 @@ def cadastrar_produtos():
 
     print("*"*40)
 
+    cadastrar_produtos(estoque)
 
 def compra():
 
@@ -104,7 +107,7 @@ def compra():
         if codigo == '000':
             break
 
-        if codigo in produtos and estoque > 0:
+        if codigo in produtos and estoque <=0:
             qtd = int(input("Digite a quantidade de produtos que quer comprar: "))
             cmp = codigo * qtd
 
