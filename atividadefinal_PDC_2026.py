@@ -104,7 +104,7 @@ def compra():
         if codigo == '000':
             break
 
-        if codigo in produtos:
+        if codigo in produtos and estoque > 0:
             qtd = int(input("Digite a quantidade de produtos que quer comprar: "))
             cmp = codigo * qtd
 
