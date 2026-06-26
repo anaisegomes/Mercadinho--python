@@ -135,6 +135,7 @@ def desconto ():
     print("*"*40)
 cadastrar_produtos()
 compra()
+desconto()
 
     # if codigo not in pedido:
     #     return "Digite um código válido"
