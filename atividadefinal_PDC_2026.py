@@ -75,6 +75,9 @@ estoque = int(input("Digite o estoque: "))
 
 def cadastrar_produtos():
     codigo = input("Digite o código: ")
+
+    produtos.append(codigo)
+
     if codigo in produtos:
         print('Esse código já existe!')
         print("Comece tudo de novo!")
