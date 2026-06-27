@@ -58,16 +58,15 @@ numéricos)
 # Código em construção:
 
 import datetime
-import random
 import os
 
 pedido = {}
 historico_vendas = []
 produtos = {}
-estoque = int(input("Digite o estoque: "))
 
 
 def cadastrar_produto():
+
     codigo = input("Digite o código: ")
 
     if codigo in produtos:
@@ -113,45 +112,47 @@ def remover_produto():
 
 def compra():
 
-    carrinho = []
-    total = 0.0
-    print("\n")
-    while True:
-        codigo = int(input("Digite o código do produto que deseja comprar: "))
+    # carrinho = []
+    # total = 0.0
+    # print("\n")
+    # while True:
+    #     codigo = int(input("Digite o código do produto que deseja comprar: "))
 
-        if codigo == 000:
-            break
+    #     if codigo == 000:
+    #         break
 
-        if codigo not in produtos:
-           print("Produto não cadastrado em nosso sistema!")
-           continue
+    #     if codigo not in produtos:
+    #        print("Produto não cadastrado em nosso sistema!")
+    #        continue
 
-        quantidade = int(input("Digite a quantidade: "))
-        if quantidade <=0:
-            print("quantidade insuficiente!")
-            continue
+    #     quantidade = int(input("Digite a quantidade: "))
+    #     if quantidade <=0:
+    #         print("quantidade insuficiente!")
+    #         continue
 
-        if quantidade > produtos[codigo]['estoque']:
-            print("Estoque insuficiente!")
-            continue
+    #     if quantidade > produtos[codigo]['estoque']:
+    #         print("Estoque insuficiente!")
+    #         continue
 
-        subtotal = produtos[codigo]['preco'] * quantidade
-        total2 += subtotal
+    #     subtotal = produtos[codigo]['preco'] * quantidade
+    #     total2 += subtotal
 
 
-        produtos[codigo]['estoque'] -= quantidade
-        carrinho.append({'codigo':codigo, 'quantidade':quantidade, 'subtotal':subtotal})
-        print(f"Subtotal: R${subtotal:.2f}")
-    print(f"Total da compra: R${total2:.2f}")
-    return carrinho, total2
+    #     produtos[codigo]['estoque'] -= quantidade
+    #     carrinho.append({'codigo':codigo, 'quantidade':quantidade, 'subtotal':subtotal})
+    #     print(f"Subtotal: R${subtotal:.2f}")
+    # print(f"Total da compra: R${total2:.2f}")
+    # return carrinho, total2
+    X = 0
 
 
 def desconto ():
-    desconto = compra /(100*10)
-    valor_final = desconto
-    return valor_final
+    # desconto = compra /(100*10)
+    # valor_final = desconto
+    # return valor_final
 
-    print(f"Valor final: {valor_final:.2f}")
+    # print(f"Valor final: {valor_final:.2f}")
+    V = 0
 
 def relatorio_estoque_baixo():
     #@çx,ds.
@@ -232,46 +233,3 @@ if __name__ == "__main__":
 
 
 
-
-# def cupom():
-#     if pedido > 100:
-#         desconto = (pedido) - (100/10)
-#         return desconto
-#     valor_final = desconto
-
-# cupom()
-
-# def relatorio(pedidos, dia):
-
-
-
-# def menu():
-#     op = input()
-#         "\n" + "="*40 + "\n"
-#         "\n\n  Mercadinho\n" + "\n"
-#         "\n" + "="*40 + "\n"
-#         "\n1.Incluir  2.Tel+  3.Tel-  4.Excluir  5.Consultar  6.Listar  7.Salvar  8.Sair" + "\n"
-#         "\nOpção: "
-
-#     # )
-#     return op
-
-# def main():
-#     carregar()
-#     while True:
-#         op = menu()
-#         if op == '1': incluir_contato()
-#         elif op == '2': incluir_telefone()
-#         elif op == '3': excluir_telefone()
-#         elif op == '4': excluir_contato()
-#         elif op == '5': consultar_telefone()
-#         elif op == '6': listar_contatos()
-#         elif op == '7': salvar()
-#         elif op == '8': salvar(); break
-#         else: print("Inválido.")
-
-# if __name__ == "__main__":
-    # main()
-
-
-# def nota_fiscal(pedido, hora):    
