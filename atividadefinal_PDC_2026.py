@@ -59,13 +59,7 @@ numéricos)
 
 import datetime
 import random
-
-print("\n")
-print("*" * 40)
-print("======== Bem vindo ao mercadinho ========")
-print("*" * 40)
-print("\n")
-# Base de produtos:
+import os
 
 pedido = {}
 historico_vendas = []
@@ -73,21 +67,32 @@ produtos = {}
 estoque = int(input("Digite o estoque: "))
 
 
-def cadastrar_produtos():
+def cadastrar_produto():
     codigo = input("Digite o código: ")
-
-    produtos.update({"codigo": "codigo"})
 
     if codigo in produtos:
         print('Esse código já existe!')
         print("Comece tudo de novo!")
+        return
+        
+    print("Deixe em branco para manter o valor atual.")
+    nome = input(f"Nome ({produtos[codigo]['nome']}): ").strip()
+    preco = input(f"Preço ({produtos[codigo]['preco']:.2f}): ").strip()
+    estoque = input(f"Estoque ({produtos[codigo]['estoque']}): ").strip()
+    if nome:
+        produtos[codigo]['nome'] = nome
+    if preco:
+        try:
+            produtos[codigo]['preco'] = float(preco)
+        except ValueError:
+            print(" Preço inválido, mantido o anterior.")
+    if estoque:
+        try:
+            produtos[codigo]['estoque'] = int(estoque)
+        except ValueError:
+            print(" Estoque inválido, mantido o anterior.")
+    print(" Produto atualizado!")
 
-    elif codigo not in produtos:
-        nome =input("Digite o nome do produto: ")
-        preco = float(input("Digite o preço do produto: R$ "))
-        # estoque = int(input("Digite o estoque do produto: "))
-
-    produtos['codigo'] =  {'nome': 'nome', 'preco':'preco', 'estoque': 'estoque'}
 
     # mostrar os produtos que já tem no sistema
     
@@ -100,34 +105,46 @@ def cadastrar_produtos():
 
     cadastrar_produtos(estoque)
 
+def editar_produto():
+    m = 10
+
+def remover_produto():
+    x = 7
+
 def compra():
 
     carrinho = []
     total = 0.0
+    print("\n")
     while True:
         codigo = int(input("Digite o código do produto que deseja comprar: "))
 
-        if codigo == '000':
+        if codigo == 000:
             break
-
-        if codigo in produtos and estoque <=0:
-            qtd = int(input("Digite a quantidade de produtos que quer comprar: "))
-            cmp = codigo * qtd
-
-            for i in produtos:
-                carrinho += cmp
-                return carrinho
-            
-        print(f"Total: R$ {total}")
 
         if codigo not in produtos:
            print("Produto não cadastrado em nosso sistema!")
+           continue
 
-        #    print(f"Total: R$ {total}")
-        
-        # if not carrinho:
-        #     print("Compra não realizada! ")
-        #     return
+        quantidade = int(input("Digite a quantidade: "))
+        if quantidade <=0:
+            print("quantidade insuficiente!")
+            continue
+
+        if quantidade > produtos[codigo]['estoque']:
+            print("Estoque insuficiente!")
+            continue
+
+        subtotal = produtos[codigo]['preco'] * quantidade
+        total2 += subtotal
+
+
+        produtos[codigo]['estoque'] -= quantidade
+        carrinho.append({'codigo':codigo, 'quantidade':quantidade, 'subtotal':subtotal})
+        print(f"Subtotal: R${subtotal:.2f}")
+    print(f"Total da compra: R${total2:.2f}")
+    return carrinho, total2
+
 
 def desconto ():
     desconto = compra /(100*10)
@@ -136,24 +153,78 @@ def desconto ():
 
     print(f"Valor final: {valor_final:.2f}")
 
+def relatorio_estoque_baixo():
+    #@çx,ds.
+    x = 0
 
+def relatorio_historico():
 
 
 # def
 
     print("*"*40)
-cadastrar_produtos()
 compra()
 desconto()
 
-    # if codigo not in pedido:
-    #     return "Digite um código válido"
-    # else:
-    #     carrinho += 1
-    # total = len(carrinho)
+def menu():
+    """Exibe o menu interativo e gerencia as opções."""
+    while True:
+        print("\n" + "="*40)
+        print("        MERCADINHO - MENU")
+        print("="*40)
+        print("1. Cadastrar produto")
+        print("2. Editar produto")
+        print("3. Remover produto")
+        print("4. Realizar venda")
+        print("5. Relatórios")
+        print("6. Sair")
+        print("-"*40)
 
-# pedido = compra()
-# print(pedido)
+        opcao = input("Escolha uma opção: ").strip()
+
+        if opcao == '1':
+            cadastrar_produto()
+        elif opcao == '2':
+            editar_produto()
+        elif opcao == '3':
+            remover_produto()
+        elif opcao == '4':
+            compra()
+        elif opcao == '5':
+            # Submenu de relatórios
+            print("\n--- Relatórios ---")
+            print("1. Estoque baixo (<5)")
+            print("2. Histórico de vendas do dia")
+            sub = input("Escolha: ").strip()
+            if sub == '1':
+                relatorio_estoque_baixo()
+            elif sub == '2':
+                relatorio_historico()
+            else:
+                print("Opção inválida.")
+        elif opcao == '6':
+            print("Obrigado por usar o mercadinho! Até logo.")
+            break
+        else:
+            print("Opção inválida! Digite um número de 1 a 6.")
+
+        input("\nPressione Enter para continuar...")
+
+# ===== Inicialização com alguns produtos de exemplo =====
+def popular_exemplos():
+    """Adiciona alguns produtos de exemplo para teste."""
+    exemplos = {
+        '001': {'nome': 'Arroz', 'preco': 25.90, 'estoque': 10},
+        '002': {'nome': 'Feijão', 'preco': 12.50, 'estoque': 8},
+        '003': {'nome': 'Macarrão', 'preco': 5.75, 'estoque': 15},
+        '004': {'nome': 'Leite', 'preco': 4.50, 'estoque': 3},  # estoque baixo
+        '005': {'nome': 'Café', 'preco': 15.00, 'estoque': 2}    # estoque baixo
+    }
+    produtos.update(exemplos)
+
+if __name__ == "__main__":
+    popular_exemplos()   # já inicia com alguns produtos
+    menu()
     
 
 
