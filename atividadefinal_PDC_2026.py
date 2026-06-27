@@ -76,7 +76,7 @@ estoque = int(input("Digite o estoque: "))
 def cadastrar_produtos():
     codigo = input("Digite o código: ")
 
-    produtos.append(codigo)
+    produtos.update({"codigo": "codigo"})
 
     if codigo in produtos:
         print('Esse código já existe!')
@@ -102,7 +102,7 @@ def cadastrar_produtos():
 
 def compra():
 
-    carrinho = {}
+    carrinho = []
     total = 0.0
     while True:
         codigo = int(input("Digite o código do produto que deseja comprar: "))
@@ -115,13 +115,15 @@ def compra():
             cmp = codigo * qtd
 
             for i in produtos:
-                total += cmp
-                return cmp
+                carrinho += cmp
+                return carrinho
+            
+        print(f"Total: R$ {total}")
 
         if codigo not in produtos:
            print("Produto não cadastrado em nosso sistema!")
 
-           print(f"Total: R$ {total}")
+        #    print(f"Total: R$ {total}")
         
         # if not carrinho:
         #     print("Compra não realizada! ")
@@ -131,6 +133,7 @@ def desconto ():
     desconto = compra /(100*10)
     valor_final = desconto
     return valor_final
+
     print(f"Valor final: {valor_final:.2f}")
 
 
