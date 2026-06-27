@@ -132,6 +132,9 @@ def desconto ():
 
 
 
+
+# def
+
     print("*"*40)
 cadastrar_produtos()
 compra()
