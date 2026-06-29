@@ -102,7 +102,6 @@ def cadastrar_produto():
 
     print("*"*40)
 
-cadastrar_produto()
 
 def editar_produto():
     m = 10
