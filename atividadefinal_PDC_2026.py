@@ -79,7 +79,7 @@ def cadastrar_produto():
     preco = input(f"Preço ({produtos[codigo]['preco']:.2f}): ").strip()
     estoque = input(f"Estoque ({produtos[codigo]['estoque']}): ").strip()
     if nome:
-        produtos['codigo']['nome'] = nome
+        produtos[codigo]['nome'] = nome
     if preco:
         try:
             produtos[codigo]['preco'] = float(preco)
@@ -102,7 +102,7 @@ def cadastrar_produto():
 
     print("*"*40)
 
-    cadastrar_produtos(estoque)
+cadastrar_produto()
 
 def editar_produto():
     m = 10
