@@ -65,6 +65,7 @@ historico_vendas = []
 produtos = {}
 
 
+
 def cadastrar_produto():
 
     codigo = input("Digite o código: ")
@@ -73,25 +74,20 @@ def cadastrar_produto():
         print('Esse código já existe!')
         print("Comece tudo de novo!")
         return
-        
-    print("Deixe em branco para manter o valor atual.")
-    nome = input(f"Nome ({produtos[codigo]['nome']}): ").strip()
-    preco = input(f"Preço ({produtos[codigo]['preco']:.2f}): ").strip()
-    estoque = input(f"Estoque ({produtos[codigo]['estoque']}): ").strip()
-    if nome:
-        produtos[codigo]['nome'] = nome
-    if preco:
-        try:
-            produtos[codigo]['preco'] = float(preco)
-        except ValueError:
-            print(" Preço inválido, mantido o anterior.")
-    if estoque:
-        try:
-            produtos[codigo]['estoque'] = int(estoque)
-        except ValueError:
-            print(" Estoque inválido, mantido o anterior.")
-    print(" Produto atualizado!")
+    
 
+    nome = input("Nome do produto: ").strip()
+    preco = float("Digite o preco: R$ ")
+       
+    try:
+            estoque = int("Digite o estoque: ")
+
+            if estoque > 0:
+                return estoque
+            else:
+                print("Digite um número maior que 0")
+    except:
+            print("Isso não é um número! ")
 
     # mostrar os produtos que já tem no sistema
     
