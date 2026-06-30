@@ -89,6 +89,19 @@ def cadastrar_produto():
     except:
             print("Isso não é um número! ")
 
+
+    produto = {'codigo':{
+        "nome":nome, 
+        "preco":preco,
+        "estoque": estoque
+    }}
+
+
+    produtos[codigo] = produto
+
+    print(f"Produto {nome}!")
+    input("Pressione enter para continuar...")
+
     # mostrar os produtos que já tem no sistema
     
     print(f'Produto: {nome}')
