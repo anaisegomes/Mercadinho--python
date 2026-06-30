@@ -109,20 +109,28 @@ def editar_produto():
 def remover_produto():
     x = 7
 
-def compra():
+def venda():
 
-    # carrinho = []
-    # total = 0.0
-    # print("\n")
-    # while True:
-    #     codigo = int(input("Digite o código do produto que deseja comprar: "))
+    carrinho = []
 
-    #     if codigo == 000:
-    #         break
+    if len(produtos) == 0:
+        print("Cadastre produtos primeiro!")
+        print("Pressione enter para continuar...")
+        return
+   
 
-    #     if codigo not in produtos:
-    #        print("Produto não cadastrado em nosso sistema!")
-    #        continue
+    while True:
+        codigo = int(input("Digite o código do produto que deseja comprar: "))
+
+        if codigo =='FIM':
+            break
+
+        if codigo not in produtos:
+           print("Produto não cadastrado em nosso sistema!")
+           continue
+
+        produtos = produtos[codigo]
+        # quantidade = 
 
     #     quantidade = int(input("Digite a quantidade: "))
     #     if quantidade <=0:
@@ -142,7 +150,7 @@ def compra():
     #     print(f"Subtotal: R${subtotal:.2f}")
     # print(f"Total da compra: R${total2:.2f}")
     # return carrinho, total2
-    X = 0
+    # X = 0
 
 
 def desconto ():
