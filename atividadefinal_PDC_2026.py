@@ -171,7 +171,7 @@ def relatorio_historico():
 # def
 
     print("*"*40)
-compra()
+venda()
 desconto()
 
 def menu():
@@ -197,7 +197,7 @@ def menu():
         elif opcao == '3':
             remover_produto()
         elif opcao == '4':
-            compra()
+            venda()
         elif opcao == '5':
             # Submenu de relatórios
             print("\n--- Relatórios ---")
