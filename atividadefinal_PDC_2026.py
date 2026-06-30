@@ -122,12 +122,6 @@ def venda():
 
     carrinho = []
 
-    if len(produtos) == 0:
-        print("Cadastre produtos primeiro!")
-        print("Pressione enter para continuar...")
-        return
-   
-
     while True:
         codigo = int(input("Digite o código do produto que deseja comprar: "))
 
@@ -180,7 +174,6 @@ def relatorio_historico():
 # def
 
     print("*"*40)
-venda()
 desconto()
 
 def menu():
