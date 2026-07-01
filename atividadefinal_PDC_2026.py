@@ -113,7 +113,19 @@ def cadastrar_produto():
 
 
 def editar_produto():
-    m = 10
+    print("*"*40)   
+    print("-----Editar produto-----")
+    print("*"*40)  
+
+    if len(produtos) == 0:
+        print("Não tem nenhum produto cadastrad0!")
+        input("Presione Enter para continuar...")
+        return
+    
+    mostrar_produtos()
+
+    
+        
 
 def remover_produto():
     x = 7
@@ -133,36 +145,11 @@ def venda():
            continue
 
         produtos = produtos[codigo]
-        # quantidade = 
-
-    #     quantidade = int(input("Digite a quantidade: "))
-    #     if quantidade <=0:
-    #         print("quantidade insuficiente!")
-    #         continue
-
-    #     if quantidade > produtos[codigo]['estoque']:
-    #         print("Estoque insuficiente!")
-    #         continue
-
-    #     subtotal = produtos[codigo]['preco'] * quantidade
-    #     total2 += subtotal
-
-
-    #     produtos[codigo]['estoque'] -= quantidade
-    #     carrinho.append({'codigo':codigo, 'quantidade':quantidade, 'subtotal':subtotal})
-    #     print(f"Subtotal: R${subtotal:.2f}")
-    # print(f"Total da compra: R${total2:.2f}")
-    # return carrinho, total2
-    # X = 0
+        
 
 
 def desconto ():
-    # desconto = compra /(100*10)
-    # valor_final = desconto
-    # return valor_final
-
-    # print(f"Valor final: {valor_final:.2f}")
-    V = 0
+    x = 0
 
 def relatorio_estoque_baixo():
     #@çx,ds.
