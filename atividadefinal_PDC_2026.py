@@ -116,16 +116,53 @@ def editar_produto():
     print("*"*40)   
     print("-----Editar produto-----")
     print("*"*40)  
+    
 
     if len(produtos) == 0:
         print("Não tem nenhum produto cadastrad0!")
         input("Presione Enter para continuar...")
         return
     
-    mostrar_produtos()
+    # mostrar_produtos()
 
+    codigo = input("\nDigite o codigo do produto que quer editar: ").strip()
+
+    if codigo not in produtos:
+        print("Esse produto não existe!")
+        print("Pressione [Enter] para continuar...")
+        return
     
-        
+    produto = produtos[codigo]
+    print(f"Editando: {produto['nome']}")
+
+    print("\nDeixe em branco se não quiser mudar:")
+
+
+    new_nome = input(f"Digite o novo nome: [{produtos['nome']}]: ").strip()
+    new_preco = input(f"fDigite o novo preco [{produtos['preco']}]: ").strip()
+    new_estoque = input(f"Digite o tamanho do estoque: {produtos['estoque']}: ").strip()
+
+
+    if new_nome != "":
+        produto['nome'] = new_nome
+
+    if new_preco != "":
+        try:
+
+            produto['preco'] = float(new_preco)
+        except:
+            print("Preço inválido!")
+            print("Mantendo o anterior...")
+
+    if new_estoque != "":
+        try:
+            produto['estoque'] = int(new_estoque)
+        except:
+            print("O valor tem que ser um número inteiro!")
+            print("Mantendo o valor anterior...")
+
+    print("\nProduto atualizado com sucesso!")
+    input("Pressione Enter para continuar...")
 
 def remover_produto():
     x = 7
