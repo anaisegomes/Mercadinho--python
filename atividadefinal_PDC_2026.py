@@ -60,7 +60,6 @@ numéricos)
 import datetime
 import os
 
-pedido = {}
 historico_vendas = []
 produtos = {}
 
@@ -123,7 +122,7 @@ def editar_produto():
         input("Presione Enter para continuar...")
         return
     
-    # mostrar_produtos()
+    mostrar_produtos()
 
     codigo = input("\nDigite o codigo do produto que quer editar: ").strip()
 
@@ -164,8 +163,58 @@ def editar_produto():
     print("\nProduto atualizado com sucesso!")
     input("Pressione Enter para continuar...")
 
+
+
+
 def remover_produto():
-    x = 7
+    print("*"*40)   
+    print("-----remover produto-----")
+    print("*"*40)  
+
+    if len(produtos) ==0:
+        print("Não há produtos cadastrados!")
+        input("Pressione [enter] para continuar...")
+        return
+    
+    mostrar_produtos()
+
+    codigo = input("\nDigite o codigo do produto que quer editar: ").strip()
+
+    if codigo not in produtos:
+        print("Esse produto não existe!")
+        print("Pressione [Enter] para continuar...")
+        return
+
+    produto = produtos[codigo]
+    confirmar = input(f"Confirmando que deseja remover o {produto['nome']}? (s/n): ").upper()
+
+    if confirmar == 's':
+        del produtos[codigo]
+        print("Produto removido!")
+    else:
+        print("Operação cancelada")
+
+    input("Pressione [enter] para continuar...")
+
+def mostrar_produtos():
+    if len(produtos) == 0:
+        print("Nenhum produto cadastrado!")
+        return
+    
+    print("\nLISTA DE PRODUTOS:")
+    print("-" * 60)
+    # Cabeçalho da tabela
+    print(f"{'Código':<8} {'Nome':<20} {'Preço':<12} {'Estoque':<10}")
+    print("-" * 60)
+    
+    # Mostra cada produto
+    for codigo in produtos:
+        p = produtos[codigo]  # 'p' é o dicionário do produto
+        print(f"{codigo:<8} {p['nome']:<20} {produtos(p['preco']):<12} {p['estoque']:<10}")
+    
+    print("-" * 60)
+
+
 
 def venda():
 
@@ -257,7 +306,7 @@ def popular_exemplos():
     produtos.update(exemplos)
 
 if __name__ == "__main__":
-    popular_exemplos()   # já inicia com alguns produtos
+    popular_exemplos()   
     menu()
     
 
